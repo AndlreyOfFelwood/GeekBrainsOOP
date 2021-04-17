@@ -139,7 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GeekBrainsOOP.cpp" />
+    <ClCompile Include="BlackJack.cpp" />
+    <ClCompile Include="Dealer.cpp" />
+    <ClCompile Include="Fruit.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Player.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BlackJack.h" />
+    <ClInclude Include="Dealer.h" />
+    <ClInclude Include="Fruit.h" />
+    <ClInclude Include="Person.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
