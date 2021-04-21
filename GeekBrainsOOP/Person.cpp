@@ -1,5 +1,7 @@
 #include "Person.h"
 
+size_t Student::_studentsCount = 0;
+
 void Person::setName(string name)
 {
 	_name = name;
