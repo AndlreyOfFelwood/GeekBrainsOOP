@@ -32,6 +32,8 @@ private:
 	Value _value;
 	bool _cardFace;
 public:
+	Card(Value value, Suit suit, bool cardFace = false)
+		: _value(value), _suit(suit), _cardFace(cardFace) {}
 	void flip();
 	Value getValue();
 };

@@ -51,6 +51,9 @@
     <ClCompile Include="Car.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Hand.cpp">
+      <Filter>Исходные файлы\Blackjack</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Person.h">
@@ -74,11 +77,17 @@
     <ClInclude Include="Fraction.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Card.h">
+    <ClInclude Include="ArrayInt.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Car.h">
+    <ClInclude Include="Hand.h">
       <Filter>Файлы заголовков\BlackJack</Filter>
+    </ClInclude>
+    <ClInclude Include="Card.h">
+      <Filter>Файлы заголовков\BlackJack</Filter>
+    </ClInclude>
+    <ClInclude Include="Car.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

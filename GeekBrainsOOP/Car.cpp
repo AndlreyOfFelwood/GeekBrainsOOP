@@ -1,21 +1,21 @@
-#include "Car.h"
+ï»¿#include "Car.h"
 
 Car::Car()
 {
-	cout << "Êîíñòðóêòîð êëàññà \"Car\"\n";
+	cout << "ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ ÐºÐ»Ð°ÑÑÐ° \"Car\"\n";
 }
 
 PassengerCar::PassengerCar()
 {
-	cout << "Êîíñòðóêòîð êëàññà \"PassengerCar\"\n";
+	cout << "ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ ÐºÐ»Ð°ÑÑÐ° \"PassengerCar\"\n";
 }
 
 Bus::Bus()
 {
-	cout << "Êîíñòðóêòîð êëàññà \"Bus\"\n";
+	cout << "ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ ÐºÐ»Ð°ÑÑÐ° \"Bus\"\n";
 }
 
 Minivan::Minivan()
 {
-	cout << "Êîíñòðóêòîð êëàññà \"Minivan\"\n";
+	cout << "ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ ÐºÐ»Ð°ÑÑÐ° \"Minivan\"\n";
 }
