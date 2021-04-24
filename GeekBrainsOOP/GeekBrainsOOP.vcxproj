@@ -140,7 +140,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BlackJack.cpp" />
+    <ClCompile Include="Car.cpp" />
+    <ClCompile Include="Card.cpp" />
     <ClCompile Include="Dealer.cpp" />
+    <ClCompile Include="Figure.cpp" />
+    <ClCompile Include="Fraction.cpp" />
     <ClCompile Include="Fruit.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
@@ -148,7 +152,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BlackJack.h" />
+    <ClInclude Include="Car.h" />
+    <ClInclude Include="Card.h" />
     <ClInclude Include="Dealer.h" />
+    <ClInclude Include="Figure.h" />
+    <ClInclude Include="Fraction.h" />
     <ClInclude Include="Fruit.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Player.h" />
