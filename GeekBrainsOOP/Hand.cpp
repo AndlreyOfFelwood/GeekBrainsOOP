@@ -7,6 +7,8 @@ void Hand::add(Card* card)
 
 void Hand::clear()
 {
+	for (Card* ñ : _hand)
+		delete ñ;
 	_hand.clear();
 }
 

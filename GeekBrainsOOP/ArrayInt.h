@@ -99,14 +99,7 @@ public:
 
     void pop_back() 
     {
-        --m_length;
-        int* data = new int[m_length];
-
-        for (int before = 0; before < m_length; ++before)
-            data[before] = m_data[before];
-
-        delete[] m_data;
-        m_data = data;
+        resize(m_length - 1);
     }
 
     void pop_front()
