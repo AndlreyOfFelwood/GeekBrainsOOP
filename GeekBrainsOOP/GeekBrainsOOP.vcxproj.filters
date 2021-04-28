@@ -54,6 +54,9 @@
     <ClCompile Include="Hand.cpp">
       <Filter>Исходные файлы\Blackjack</Filter>
     </ClCompile>
+    <ClCompile Include="GenericPlayer.cpp">
+      <Filter>Исходные файлы\Blackjack</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Person.h">
@@ -88,6 +91,12 @@
     </ClInclude>
     <ClInclude Include="Car.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Pair.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericPlayer.h">
+      <Filter>Файлы заголовков\BlackJack</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

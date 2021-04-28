@@ -1,35 +1,22 @@
 #include <iostream>
 #include <cstdint>
 #include <vector>
-#include "ArrayInt.h"
-#include "Hand.h"
-#include "Card.h"
+#include "Pair.h"
 
 using namespace std;
-
-int checkDif(vector<int> vec)
-{
-	sort(begin(vec), end(vec));
-	int count = unique(begin(vec), end(vec)) - begin(vec);
-	return count;
-}
 
 int main()
 {
 	setlocale(0, "");
 
-	ArrayInt MyArr(10);
-	MyArr.init();
+	Pair1<int> p1(6, 9);
+	const Pair1<double> p2(3.4, 7.8);
 
-	const int vSize = 10;
-	vector<int> v(vSize);
+	Pair<int, double> pp1(6, 7.8);
+	const Pair<double, int> pp2(3.4, 5);
 
-	vector<Card*> hand;
-	hand.push_back(new Card(Value::TWO, Suit::DIAMONDS));
-	hand.push_back(new Card(Value::FIVE, Suit::CLOVERS));
-	hand.push_back(new Card(Value::ACE, Suit::SPADES));
-	hand.push_back(new Card(Value::THREE, Suit::HEARTS));
-	Hand myHand(hand);
+	StringValuePair<int> svp("Amazing", 7);
+
 
 	unsigned short taskNum;
 
@@ -41,29 +28,15 @@ int main()
 		switch (taskNum)
 		{
 		case 1:
-			MyArr.print();
-			MyArr.pop_back();
-			MyArr.print();
-			MyArr.pop_front();
-			MyArr.print();
-			MyArr.arrSort();
-			MyArr.print();
+			cout << "Pair: " << p1.first() << ' ' << p1.second() << '\n';
+			cout << "Pair: " << p2.first() << ' ' << p2.second() << '\n';
 			break;
 		case 2:
-			for (size_t i = 0; i < vSize; i++)
-				v[i] = rand() % vSize;
-
-			cout << "Массив: \n";
-
-			for (int i = 0; i < vSize; i++)
-				cout << v[i] << ' ';
-
-			cout << endl;
-
-			cout << checkDif(v);
+			cout << "Pair: " << pp1.first() << ' ' << pp1.second() << '\n';
+			cout << "Pair: " << pp2.first() << ' ' << pp2.second() << '\n';
 			break;
 		case 3:
-			cout << myHand.getValue();
+			std::cout << "Pair: " << svp.first() << ' ' << svp.second() << '\n';
 			break;
 		default:
 			break;
