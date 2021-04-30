@@ -1,22 +1,86 @@
 #include <iostream>
-#include <cstdint>
-#include <vector>
-#include "Pair.h"
+#include <limits>
+#include <iomanip>
+#include "Card.h"
+#include "GenericPlayer.h"
 
 using namespace std;
+
+void cIn(int& var)
+{
+	do
+	{
+		if (cin.fail())
+		{
+			cout << "Ошибка, введите ЦЕЛОЕ ЧИСЛО!\n";
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize> ::max(), '\n');
+		}
+		else
+			cout << "Введите целое число:\n";
+
+		cin >> var;
+	} while (cin.fail());
+}
+
+ostream& endll(ostream& stream)
+{
+	stream << "\n\n";
+	clog.clear();
+	return stream;
+}
+
+ostream& operator<<(ostream& os, const GenericPlayer& aGenericPlayer)
+{
+	os << aGenericPlayer._name << ":\t";
+
+	vector<Card*>::const_iterator pCard;
+	if (!aGenericPlayer._hand.empty())
+	{
+		for (pCard = aGenericPlayer._hand.begin();
+			pCard != aGenericPlayer._hand.end();
+			++pCard)
+		{
+			os << *(*pCard) << "\t";
+		}
+
+
+		if (aGenericPlayer.getValue() != 0)
+		{
+			cout << "(" << aGenericPlayer.getValue() << ")";
+		}
+	}
+	else
+	{
+		os << "<empty>";
+	}
+
+	return os;
+}
+
+
+ostream& operator<<(ostream& os, const Card& aCard)
+{
+	const string RANKS[] = { "A", "2", "3", "4", "5", "6", "7", "8", "9","10", "J", "Q", "K" };
+	const string SUITS[] = { "c", "d", "h", "s" };
+
+	if (aCard._cardFace)
+	{
+		os << RANKS[static_cast<int>(aCard._value)] << SUITS[static_cast<int>(aCard._suit)];
+	}
+	else
+	{
+		os << "XX";
+	}
+
+	return os;
+}
 
 int main()
 {
 	setlocale(0, "");
 
-	Pair1<int> p1(6, 9);
-	const Pair1<double> p2(3.4, 7.8);
-
-	Pair<int, double> pp1(6, 7.8);
-	const Pair<double, int> pp2(3.4, 5);
-
-	StringValuePair<int> svp("Amazing", 7);
-
+	int task1;
 
 	unsigned short taskNum;
 
@@ -28,15 +92,15 @@ int main()
 		switch (taskNum)
 		{
 		case 1:
-			cout << "Pair: " << p1.first() << ' ' << p1.second() << '\n';
-			cout << "Pair: " << p2.first() << ' ' << p2.second() << '\n';
+			cIn(task1);
+			cout << "Введено число " << task1 << endl; 
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize> ::max(), '\n');
 			break;
 		case 2:
-			cout << "Pair: " << pp1.first() << ' ' << pp1.second() << '\n';
-			cout << "Pair: " << pp2.first() << ' ' << pp2.second() << '\n';
+			cout << "Вывод" << endll << "через" << endll << "двойной" << endll << "перевод" << endll << "строки" << endl;
 			break;
 		case 3:
-			std::cout << "Pair: " << svp.first() << ' ' << svp.second() << '\n';
 			break;
 		default:
 			break;

@@ -12,7 +12,7 @@ void Hand::clear()
 	_hand.clear();
 }
 
-unsigned short int Hand::getValue()
+unsigned short int Hand::getValue() const
 {
 	unsigned short int value = 0;
 	unsigned short int aceCount = 0;
@@ -37,4 +37,9 @@ unsigned short int Hand::getValue()
 		}
 
 	return value;
+}
+
+vector<Card*> Hand::getHand() const
+{
+	return _hand;
 }

@@ -7,7 +7,7 @@ using namespace std;
 
 class Hand
 {
-private:
+protected:
 	vector<Card*> _hand;
 public:
 	Hand() {};
@@ -15,6 +15,7 @@ public:
 		:_hand(hand) {};
 	void add(Card* card);
 	void clear();
-	unsigned short int getValue();
+	unsigned short int getValue() const;
+	vector<Card*> getHand() const;
 };
 
