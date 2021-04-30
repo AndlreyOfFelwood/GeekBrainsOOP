@@ -1,9 +1,9 @@
 #include "GenericPlayer.h"
 #include <iostream>
 
-bool GenericPlayer::IsBoosted()
+bool GenericPlayer::IsBoosted(Hand& h)
 {
-	return _hand.getValue() > 21;
+	return h.getValue() > 21;
 }
 
 void GenericPlayer::Bust()

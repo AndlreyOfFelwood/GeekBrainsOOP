@@ -8,12 +8,11 @@ class GenericPlayer :
 {
 private:
     std::string _name;
-    Hand& _hand;
 public:
-    GenericPlayer(Hand& h)
-        :_hand(h) {};
+    GenericPlayer(std::string name = "Игрок")
+        :_name(name) {};
     virtual bool IsHitting() = 0;
-    bool IsBoosted();
+    bool IsBoosted(Hand& h);
     void Bust();
 };
 
