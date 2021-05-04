@@ -148,6 +148,7 @@
     <ClCompile Include="Fruit.cpp" />
     <ClCompile Include="GenericPlayer.cpp" />
     <ClCompile Include="Hand.cpp" />
+    <ClCompile Include="House.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="Fruit.h" />
     <ClInclude Include="GenericPlayer.h" />
     <ClInclude Include="Hand.h" />
+    <ClInclude Include="House.h" />
     <ClInclude Include="Pair.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Player.h" />

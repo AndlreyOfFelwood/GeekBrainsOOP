@@ -1,28 +1,31 @@
 #pragma once
+#include <iostream>
+
+using namespace std;
 
 enum class Suit
 {
-	DIAMONDS,
 	CLOVERS,
+	DIAMONDS,
 	HEARTS,
 	SPADES
 };
 
 enum class Value
 {
-	TWO = 2,
-	THREE = 3,
-	FOUR = 4,
-	FIVE = 5, 
-	SIX = 6,
-	SEVEN = 7,
-	EIGHT = 8,
-	NINE = 9,
-	TEN = 10,
-	JACKET = 10,
-	QUEEN = 10,
-	KING = 10,
-	ACE = 1
+	ACE = 1,
+	TWO,
+	THREE,
+	FOUR,
+	FIVE, 
+	SIX,
+	SEVEN,
+	EIGHT,
+	NINE,
+	TEN,
+	JACKET,
+	QUEEN,
+	KING
 };
 
 class Card
@@ -36,4 +39,5 @@ public:
 		: _value(value), _suit(suit), _cardFace(cardFace) {}
 	void flip();
 	Value getValue();
+	friend ostream& operator<<(ostream& os, const Card& aCard);
 };

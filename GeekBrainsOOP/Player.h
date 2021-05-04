@@ -1,7 +1,13 @@
 #pragma once
-#include "BlackJack.h"
+#include "GenericPlayer.h"
 class Player :
-    public BlackJack
+    public GenericPlayer
 {
-};
+private:
 
+public:
+    bool IsHitting() const;
+	void Win() const;
+	void Lose() const;
+	void Push() const;
+};
