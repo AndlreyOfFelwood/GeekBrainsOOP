@@ -1,12 +1,14 @@
-#pragma once
 #include "GenericPlayer.h"
-class House :
-    public GenericPlayer
-{
-private:
 
+
+class House : public GenericPlayer
+{
 public:
-    House(const string& name = "House");
-    virtual bool IsHitting() const;
-    void FlipFirstCard();
+    House(const std::string& name = "House");
+
+    // показывает, хочет ли дилер продолжать брать карты
+    bool isHitting() const override;
+
+    // переворачивает первую карту
+    void flipFirstCard();
 };

@@ -1,12 +1,25 @@
+
 #include "House.h"
+#include <iostream>
+
+House::House(const std::string& name) :
+    GenericPlayer(name)
+{}
 
 
-bool House::IsHitting() const
+bool House::isHitting() const
 {
-	return (getValue() <= 16);
+    return (getTotal() <= 16);
 }
 
-void House::FlipFirstCard()
+void House::flipFirstCard()
 {
-	getHand().at(0)->flip();
+    if (!(m_cards.empty()))
+    {
+        m_cards[0]->flip();
+    }
+    else
+    {
+        std::cout << "No card to flip!\n";
+    }
 }

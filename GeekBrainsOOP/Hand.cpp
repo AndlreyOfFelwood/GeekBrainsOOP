@@ -1,45 +1,50 @@
 #include "Hand.h"
-
-void Hand::add(Card* card)
+void Hand::add(Card* pCard)
 {
-	_hand.push_back(card);
+    m_cards.push_back(pCard);
 }
 
 void Hand::clear()
 {
-	for (Card* � : _hand)
-		delete �;
-	_hand.clear();
+    // проходит по вектору, освобождая всю память в куче
+    for (auto i : m_cards)
+    {
+        delete i;
+    }
+    m_cards.clear();
 }
 
-unsigned short int Hand::getValue() const
+
+int Hand::getTotal() const
 {
-	unsigned short int value = 0;
-	unsigned short int aceCount = 0;
-	bool ace = false;
+    // если карт в руке нет, возвращает значение 0
+    if (m_cards.empty())
+        return 0;
 
-	for (size_t i = 0; i < _hand.size(); i++)
-	{
-		if (static_cast<unsigned short int>(_hand[i]->getValue()) == 1)
-		{
-			ace = true;
-			aceCount++;
-			continue;
-		}
+    //если первая карта имеет значение 0, то она лежит рубашкой вверх:
+    // вернуть значение 0
+    if (m_cards[0]->getValue() == 0)
+        return 0;
 
-		value += static_cast<unsigned short int>(_hand[i]->getValue());
-	}
+    // находит сумму очков всех карт, каждый туз дает 1 очко
+    // определяет, держит ли рука туз
+    bool containsAce = false;
+    int total = 0;
+    for (auto i : m_cards)
+    {
+        if (i->getValue() == static_cast<unsigned short>(Card::rank::ACE))
+            containsAce = true;
 
-	if (ace)
-		for (size_t i = 1; i <= aceCount; i++)
-		{
-			value += (value >= 11) ? 1 : 11;
-		}
+        total += i->getValue();
+    }
 
-	return value;
-}
+    // если рука держит туз и сумма довольно маленькая, туз дает 11 очков
+    if (containsAce && total <= 11)
+    {
+        // добавляем только 10 очков, поскольку мы уже добавили
+        // за каждый туз по одному очку
+        total += 10;
+    }
 
-vector<Card*> Hand::getHand() const
-{
-	return _hand;
+    return total;
 }
