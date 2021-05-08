@@ -48,6 +48,9 @@
     <ClCompile Include="Deck.cpp">
       <Filter>Исходные файлы\Blackjack</Filter>
     </ClCompile>
+    <ClCompile Include="Ex.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -73,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="Deck.h">
       <Filter>Файлы заголовков\BlackJack</Filter>
+    </ClInclude>
+    <ClInclude Include="Ex.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

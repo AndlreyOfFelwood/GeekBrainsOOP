@@ -1,85 +1,94 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 #include <clocale>
-#include <limits>
-#include <chrono>
-#include <ctime>
-#include "Date.h"
-#include "Game.h"
+#include "Ex.h"
 
 using namespace std;
 
-
-ostream& operator<<(ostream& os, const unique_ptr<Date>& aDate)
+//task1
+template<typename T1, typename T2>
+double div(T1& first, T2& second)
 {
-	os << "День: " << aDate->getDay() << endl;
-	os << "Месяц: " << aDate->getMonth() << endl;
-	os << "Год: " << aDate->getYear() << endl;
+	if (second == 0)
+		throw "DivisionByZero";
 
-	return os;
+	return static_cast<double>(first) / second;
 }
+
 
 int main()
 {
 	setlocale(LC_ALL, "rus");
 
-	/*
-	* First task
-	*/
-	unique_ptr<Date> today = make_unique<Date>();
-	unique_ptr<Date> date = make_unique<Date>();
+	unsigned short f = 22;
+	double s = 0;
 
-	today->setDay(5);
-	today->setMonth("may");
-	today->setYear(2021);
-	cout << today << endl;
-	date = move(today);
-	if (date)
-		cout << "date не nullptr" << endl;
-	else
-		cout << "date = nullptr" << endl;
-
-	if (today)
-		cout << "today не nullptr" << endl;
-	else
-		cout << "today = nullptr" << endl;
-
-	/*
-	* End first task
-	*/
-
-
-	/*
-	* Blackjack
-	*/
-	int numPlayers = 0;
-	vector<string> names;
-	string name; 
-	char again = 'y';
-
-	cout << "\t\tWelcome to Blackjack!\n\n";
-
-	while (numPlayers < 1 || numPlayers > 7)
+	cout << "\t\tFirst task\n\n";
+	try
 	{
-		cout << "How many players? (1 - 7): ";
-		cin >> numPlayers;
+		cout << div(f, s) << endl;
+		cout << "The string to be output after division" << endl;
+	}
+	catch (const char* exception)
+	{
+		cerr << "Error: " << exception << endl;
+	}
+	cout << "\t\tEnd first task\n\n";
+
+
+	cout << "\t\tSecond task\n\n";
+
+	Bar<int> bar;
+	int n;
+
+	try
+	{
+		do
+		{
+			cout << "Enter integer number \"n\"\n";
+			cin >> n;
+			bar.set(n);
+
+		} while (n != 0);
+	}
+	catch (Ex<int>& e)
+	{
+		cout << "Error: " << e._x << endl;
 	}
 
-	for (int i = 0; i < numPlayers; ++i)
+	cout << "\t\tEnd second task\n\n";
+
+
+	cout << "\t\tThird task\n\n";
+
+	Robot robot;
+	
+	string direction = "right";
+	robot.printField();
+
+
+	while (direction != "exit")
 	{
-		cout << "Enter player name: ";
-		cin >> name;
-		names.push_back(name);
+		cout << "\nВведите направление перемещения (left|right|up|down) или exit для выхода из программы\n\n";
+
+		cin >> direction;
+		try
+		{
+			robot.move(direction);
+		}
+		catch (IllegalCommand& e)
+		{
+			cerr << e.getError() << endl;
+		}
+		catch (OffTheField& e)
+		{
+			cerr << e.getError() << endl;
+			cerr << "Текущая позиция - [" << e.getX() << "][" << e.getY() << "]\n";
+		}
+		
 	}
-	cout << endl;
 
-	Game aGame(names);
-
-	while (again != 'n' && again != 'N')
-	{
-		aGame.play();
-		cout << "\nDo you want to play again? (Y/N): ";
-		cin >> again;
-	}
-
+	cout << "\t\tEnd third task\n\n";
 	return 0;
 }
