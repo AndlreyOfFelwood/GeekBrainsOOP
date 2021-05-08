@@ -1,114 +1,85 @@
 #include <iostream>
+#include <clocale>
 #include <limits>
-#include <iomanip>
-#include "Card.h"
-#include "GenericPlayer.h"
+#include <chrono>
+#include <ctime>
+#include "Date.h"
+#include "Game.h"
 
 using namespace std;
 
-void cIn(int& var)
+
+ostream& operator<<(ostream& os, const unique_ptr<Date>& aDate)
 {
-	do
-	{
-		if (cin.fail())
-		{
-			cout << "Ошибка, введите ЦЕЛОЕ ЧИСЛО!\n";
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize> ::max(), '\n');
-		}
-		else
-			cout << "Введите целое число:\n";
-
-		cin >> var;
-	} while (cin.fail());
-}
-
-ostream& endll(ostream& stream)
-{
-	stream << "\n\n";
-	clog.clear();
-	return stream;
-}
-
-ostream& operator<<(ostream& os, const GenericPlayer& aGenericPlayer)
-{
-	os << aGenericPlayer._name << ":\t";
-
-	vector<Card*>::const_iterator pCard;
-	if (!aGenericPlayer._hand.empty())
-	{
-		for (pCard = aGenericPlayer._hand.begin();
-			pCard != aGenericPlayer._hand.end();
-			++pCard)
-		{
-			os << *(*pCard) << "\t";
-		}
-
-
-		if (aGenericPlayer.getValue() != 0)
-		{
-			cout << "(" << aGenericPlayer.getValue() << ")";
-		}
-	}
-	else
-	{
-		os << "<empty>";
-	}
-
-	return os;
-}
-
-
-ostream& operator<<(ostream& os, const Card& aCard)
-{
-	const string RANKS[] = { "A", "2", "3", "4", "5", "6", "7", "8", "9","10", "J", "Q", "K" };
-	const string SUITS[] = { "c", "d", "h", "s" };
-
-	if (aCard._cardFace)
-	{
-		os << RANKS[static_cast<int>(aCard._value)] << SUITS[static_cast<int>(aCard._suit)];
-	}
-	else
-	{
-		os << "XX";
-	}
+	os << "День: " << aDate->getDay() << endl;
+	os << "Месяц: " << aDate->getMonth() << endl;
+	os << "Год: " << aDate->getYear() << endl;
 
 	return os;
 }
 
 int main()
 {
-	setlocale(0, "");
+	setlocale(LC_ALL, "rus");
 
-	int task1;
+	/*
+	* First task
+	*/
+	unique_ptr<Date> today = make_unique<Date>();
+	unique_ptr<Date> date = make_unique<Date>();
 
-	unsigned short taskNum;
+	today->setDay(5);
+	today->setMonth("may");
+	today->setYear(2021);
+	cout << today << endl;
+	date = move(today);
+	if (date)
+		cout << "date не nullptr" << endl;
+	else
+		cout << "date = nullptr" << endl;
 
-	do
+	if (today)
+		cout << "today не nullptr" << endl;
+	else
+		cout << "today = nullptr" << endl;
+
+	/*
+	* End first task
+	*/
+
+
+	/*
+	* Blackjack
+	*/
+	int numPlayers = 0;
+	vector<string> names;
+	string name; 
+	char again = 'y';
+
+	cout << "\t\tWelcome to Blackjack!\n\n";
+
+	while (numPlayers < 1 || numPlayers > 7)
 	{
-		cout << "\nВведите номер задания (1-3) или 0 для выхода из программы.\n\n";
-		cin >> taskNum;
+		cout << "How many players? (1 - 7): ";
+		cin >> numPlayers;
+	}
 
-		switch (taskNum)
-		{
-		case 1:
-			cIn(task1);
-			cout << "Введено число " << task1 << endl; 
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize> ::max(), '\n');
-			break;
-		case 2:
-			cout << "Вывод" << endll << "через" << endll << "двойной" << endll << "перевод" << endll << "строки" << endl;
-			break;
-		case 3:
-			break;
-		default:
-			break;
-		}
+	for (int i = 0; i < numPlayers; ++i)
+	{
+		cout << "Enter player name: ";
+		cin >> name;
+		names.push_back(name);
+	}
+	cout << endl;
 
-	} while (taskNum != 0);
+	Game aGame(names);
 
-
+	while (again != 'n' && again != 'N')
+	{
+		aGame.play();
+		cout << "\nDo you want to play again? (Y/N): ";
+		cin >> again;
+	}
 
 	return 0;
 }

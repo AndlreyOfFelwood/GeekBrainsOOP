@@ -1,13 +1,20 @@
 #pragma once
 #include "GenericPlayer.h"
-class Player :
-    public GenericPlayer
-{
-private:
 
+class Player : public GenericPlayer
+{
 public:
-    bool IsHitting() const;
-	void Win() const;
-	void Lose() const;
-	void Push() const;
+    Player(const std::string& name = "");
+
+    // показывает, хочет ли игрок продолжать брать карты
+    bool isHitting() const override;
+
+    // объявляет, что игрок победил
+    void win() const;
+
+    // объявляет, что игрок проиграл
+    void lose() const;
+
+    // объявляет ничью
+    void push() const;
 };

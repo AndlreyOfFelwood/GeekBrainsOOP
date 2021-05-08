@@ -21,35 +21,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Person.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Fruit.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="BlackJack.cpp">
-      <Filter>Исходные файлы\Blackjack</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Исходные файлы\Blackjack</Filter>
     </ClCompile>
-    <ClCompile Include="Dealer.cpp">
-      <Filter>Исходные файлы\Blackjack</Filter>
-    </ClCompile>
-    <ClCompile Include="Figure.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Fraction.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Card.cpp">
       <Filter>Исходные файлы\Blackjack</Filter>
-    </ClCompile>
-    <ClCompile Include="Car.cpp">
-      <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Hand.cpp">
       <Filter>Исходные файлы\Blackjack</Filter>
@@ -60,31 +39,19 @@
     <ClCompile Include="House.cpp">
       <Filter>Исходные файлы\Blackjack</Filter>
     </ClCompile>
+    <ClCompile Include="Date.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Исходные файлы\Blackjack</Filter>
+    </ClCompile>
+    <ClCompile Include="Deck.cpp">
+      <Filter>Исходные файлы\Blackjack</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Person.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Fruit.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="BlackJack.h">
-      <Filter>Файлы заголовков\BlackJack</Filter>
-    </ClInclude>
-    <ClInclude Include="Dealer.h">
-      <Filter>Файлы заголовков\BlackJack</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Файлы заголовков\BlackJack</Filter>
-    </ClInclude>
-    <ClInclude Include="Figure.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Fraction.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="ArrayInt.h">
-      <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Hand.h">
       <Filter>Файлы заголовков\BlackJack</Filter>
@@ -92,16 +59,19 @@
     <ClInclude Include="Card.h">
       <Filter>Файлы заголовков\BlackJack</Filter>
     </ClInclude>
-    <ClInclude Include="Car.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Pair.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="GenericPlayer.h">
       <Filter>Файлы заголовков\BlackJack</Filter>
     </ClInclude>
     <ClInclude Include="House.h">
+      <Filter>Файлы заголовков\BlackJack</Filter>
+    </ClInclude>
+    <ClInclude Include="Date.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Файлы заголовков\BlackJack</Filter>
+    </ClInclude>
+    <ClInclude Include="Deck.h">
       <Filter>Файлы заголовков\BlackJack</Filter>
     </ClInclude>
   </ItemGroup>

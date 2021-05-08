@@ -1,39 +1,31 @@
-#include <iostream>
-#include <limits>
 #include "Player.h"
+#include <iostream>
+using namespace std;
+
+Player::Player(const string& name) :
+    GenericPlayer(name)
+{}
 
 
-bool Player::IsHitting() const
+bool Player::isHitting() const
 {
-	cout << "Взять ещё карту?(введите y/n)\n";
-	while (true)
-	{
-		char answer;
-		std::cin >> answer;
-
-		if (std::cin.fail())
-		{
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize> ::max(), '\n');
-		}
-		else if (answer == 'y' || answer == 'Y')
-			return true;
-		else if(answer == 'n' || answer == 'N')
-			return false;
-	}
+    cout << m_name << ", do you want a hit? (Y/N): ";
+    char response;
+    cin >> response;
+    return (response == 'y' || response == 'Y');
 }
 
-void Player::Win() const
+void Player::win() const
 {
-	cout << getName() << " победил!\n";
+    cout << m_name << " wins.\n";
 }
 
-void Player::Lose() const
+void Player::lose() const
 {
-	cout << getName() << " проиграл.\n";
+    cout << m_name << " loses.\n";
 }
 
-void Player::Push() const
+void Player::push() const
 {
-	cout << getName() << " сыграл в ничью.\n";
+    cout << m_name << " pushes.\n";
 }
