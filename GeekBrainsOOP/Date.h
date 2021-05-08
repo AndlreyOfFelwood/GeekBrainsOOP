@@ -7,7 +7,7 @@ using namespace std;
 class Date
 {
 private:
-	vector<string> _months = { "January", "january", "February", "february", "March", "march", "April", "april", "May", "may", "June", "june", "July", "july", "August", "august", "September", "september", "October", "october", "November", "november", "December", "december", };
+	const vector<string> _months = { "January", "january", "February", "february", "March", "march", "April", "april", "May", "may", "June", "june", "July", "july", "August", "august", "September", "september", "October", "october", "November", "november", "December", "december", };
 	unsigned short int _day;
 	string _month;
 	unsigned short int _year;
